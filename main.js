@@ -1,4 +1,4 @@
-require('update-electron-app')()
+require('update-electron-app');
 const {
   app,
   BrowserWindow,
@@ -9,7 +9,7 @@ const {
   Notification,
   Tray,
   nativeImage,
-} = require("electron");
+} = require("electron/main");
 const path = require("node:path");
 const fs = require("node:fs");
 const https = require("node:https");
