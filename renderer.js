@@ -1,2 +1,41 @@
-const information = document.getElementById('info')
-information.innerText = `This app is using Chrome (v${window.versions.chrome()}), Node.js (v${window.versions.node()}), and Electron (v${window.versions.electron()})`
+document
+  .getElementById("toggle-dark-mode")
+  .addEventListener("click", async () => {
+    const isDarkMode = await window.darkMode.toggle();
+    console.log(isDarkMode);
+    document.getElementById("theme-source").innerHTML = isDarkMode
+      ? "Dark"
+      : "Light";
+  });
+
+document
+  .getElementById("reset-to-system")
+  .addEventListener("click", async () => {
+    await window.darkMode.system();
+    document.getElementById("theme-source").innerHTML = "System";
+  });
+
+function formatDevices(devices) {
+  return devices.map((device) => device.productName).join("<hr>");
+}
+
+async function testIt() {
+  document.getElementById("granted-devices").innerHTML = formatDevices(
+    await navigator.hid.getDevices()
+  );
+  document.getElementById("granted-devices2").innerHTML = formatDevices(
+    await navigator.hid.requestDevice({ filters: [] })
+  );
+}
+
+document.getElementById("clickme").addEventListener("click", testIt);
+
+document.getElementById("drag1").ondragstart = (event) => {
+  event.preventDefault();
+  window.electron.startDrag("drag-and-drop-1.md");
+};
+
+document.getElementById("drag2").ondragstart = (event) => {
+  event.preventDefault();
+  window.electron.startDrag("drag-and-drop-2.md");
+};
