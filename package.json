@@ -10,6 +10,7 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish"
   },
+  "repository" : "github:bony7x/new-electron-app",
   "author": "Matus Svantner",
   "license": "ISC",
   "devDependencies": {
