@@ -1,6 +1,6 @@
 {
   "name": "my-electron-app",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "my electron app",
   "main": "main.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish"
   },
-  "repository" : "github:bony7x/new-electron-app",
+  "repository": "github:bony7x/new-electron-app",
   "author": "Matus Svantner",
   "license": "ISC",
   "devDependencies": {
