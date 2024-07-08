@@ -148,13 +148,6 @@ app.whenReady().then(() => {
   showNotification();
 });
 
-ipcMain.on("ondragstart", (event, filePath) => {
-  event.sender.startDrag({
-    file: path.join(__dirname, filePath),
-    icon: iconName,
-  });
-});
-
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
