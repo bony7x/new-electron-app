@@ -1,5 +1,4 @@
 const { updateElectronApp } = require("update-electron-app");
-updateElectronApp();
 const {
   app,
   BrowserWindow,
@@ -18,6 +17,8 @@ const https = require("node:https");
 const INCREMENT = 0.03;
 const INTERVAL_DELAY = 100; // ms
 let tray;
+
+updateElectronApp();
 
 ipcMain.handle("dark-mode:toggle", () => {
   if (nativeTheme.shouldUseDarkColors) {
