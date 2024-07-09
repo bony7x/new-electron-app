@@ -29,3 +29,10 @@ async function testIt() {
 }
 
 document.getElementById("clickme").addEventListener("click", testIt);
+
+let messageFromMain = document.getElementById("messageFromMain");
+let messageToMain = document.getElementById("messageToMain");
+
+window.message.messageFromMain((event, message) => {
+  messageFromMain.value = message;
+});

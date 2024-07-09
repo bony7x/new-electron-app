@@ -1,5 +1,5 @@
-const { updateElectronApp } = require('update-electron-app')
-updateElectronApp()
+const { updateElectronApp } = require("update-electron-app");
+updateElectronApp();
 const {
   app,
   BrowserWindow,
@@ -92,7 +92,14 @@ function createWindow() {
     }
   }, INTERVAL_DELAY);
 
-  win.loadFile("index.html");
+  win
+    .loadFile("index.html")
+    .then(() => {
+      win.webContents.send("messageFromMain", app.getVersion());
+    })
+    .then(() => {
+      win.show();
+    });
 }
 
 const menu = new Menu();
